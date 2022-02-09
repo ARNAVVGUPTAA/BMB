@@ -8,7 +8,6 @@ import asyncio
 
 from disnake.ext import commands
 # from disnake.ext import menus
-from dotenv import load_dotenv
 
 firebase = pyrebase.initialize_app({
   "apiKey": "AIzaSyA2Mi8LWWDb96Fu20W7_uKa_ZsRN-qtX04",
@@ -21,10 +20,7 @@ firebase = pyrebase.initialize_app({
   "measurementId": "G-70ZS3JVECZ"
 })
 
-db = firebase.database()  
-
-load_dotenv()
-TOKEN = os.getenv('CLIENT_TOKEN')
+db = firebase.database()
 
 intents = disnake.Intents().all()
 client = commands.Bot(command_prefix='~',
@@ -219,7 +215,7 @@ async def on_message(message):
 @client.slash_command()
 async def ping(inter):
     await inter.response.send_message(f"Pong!\nLatency: {round(client.latency * 1000)}" + " ms" + " <a:therki:934818828066635776>")
-    
+
 Choice = commands.option_enum(["gifs", "imgs"])
 @client.slash_command(guild_ids=[930692962688581673, 859871286296576031], description="To preview the GIF/Image you want to send")
 async def preview(inter, choice: Choice, name):
@@ -232,4 +228,4 @@ async def preview(inter, choice: Choice, name):
     else:
         await inter.response.send_message(f"couldn't preview the gif/image {name}. Are you sure it is a valid alias?", ephemeral=True, view=view)
 
-client.run(TOKEN)
+client.run('OTMyODg5MDEwOTIwMTE2MjM0.YeZimA.etZDEuhNZ22O2Q7LUO6i5AwoymA')

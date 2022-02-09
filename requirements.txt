@@ -1,3 +1,2 @@
 Pyrebase
 disnake
-dotenv
