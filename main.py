@@ -2,7 +2,6 @@ import os
 import disnake
 import pyrebase
 import datetime
-import disnake_paginator
 import random
 import time
 import asyncio
@@ -95,7 +94,7 @@ async def giflist(ctx):
 
 @client.command()
 async def imglist(ctx):
-    imgarray = db.child("BMB").child("imgs").shallow().get().val().sort()
+    imgarray = db.child("BMB").child("imgs").shallow().get().val()
     sender= '\n'.join(map(str, imgarray)) 
     embed = disnake.Embed(title="Here is the list of all the image aliases:", description= sender , color=0x000000, timestamp=datetime.datetime.now())
     embed.set_footer(
