@@ -219,15 +219,7 @@ async def on_message(message):
 @client.slash_command()
 async def ping(inter):
     await inter.response.send_message(f"Pong!\nLatency: {round(client.latency * 1000)}" + " ms" + " <a:therki:934818828066635776>")
-
-@client.slash_command(guild_ids=[859871286296576031, 930692962688581673], description = "just work rn")
-async def ok(inter):
-    bluh = db.child("BMB").child("imgs").shallow().get().val()
-    sender= '\n'.join(map(str, bluh)) 
-    print(bluh)
-    paginator = disnake_paginator.ButtonPaginator(title="aaa", segments=[sender], target_page=1)
-    await paginator.start(inter)
-
+    
 Choice = commands.option_enum(["gifs", "imgs"])
 @client.slash_command(guild_ids=[930692962688581673, 859871286296576031], description="To preview the GIF/Image you want to send")
 async def preview(inter, choice: Choice, name):
