@@ -10,7 +10,7 @@ from disnake.ext import commands
 # from disnake.ext import menus
 
 firebase = pyrebase.initialize_app({
-  "apiKey": "AIzaSyA2Mi8LWWDb96Fu20W7_uKa_ZsRN-qtX04",
+  "apiKey": "-",
   "authDomain": "bmbot-43d67.firebaseapp.com",
   "databaseURL": "https://bmbot-43d67-default-rtdb.asia-southeast1.firebasedatabase.app",
   "projectId": "bmbot-43d67",
